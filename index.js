@@ -1,14 +1,48 @@
-function getComputerChoice() {
+let playerSelection = "Rock";
+let computerChoice = getComputerChoice();
 
+function getComputerChoice() {
   let e = Math.floor(Math.random() * 3);
   if (e === 0) {
-    console.log("Rock");
+    return "Rock";
+
   } else if (e === 1) {
-    console.log("Paper");
+    return "Paper";
+
   } else {
-    console.log("Scissors");
+    return "Scissor";
   }
-  
 }
 
-getComputerChoice();
+function playRound(playerSelection, ComputerSelection) {
+  /* the playerSelection Rock option cases */
+  if (playerSelection === "Rock" && ComputerSelection === "Rock") {
+    return "You are evan";
+  } else if (playerSelection === "Rock" && ComputerSelection === "Paper") {
+    return "You Lose! Paper beats Rock";
+  } else if (playerSelection === "Rock" && ComputerSelection === "Scissors") {
+    return "You Won! Rock beats Scissors";
+  }
+
+  /* the playerSelection Paper option cases */
+  if (playerSelection === "Paper" && ComputerSelection === "Rock") {
+    return "You Won ! Paper beats Rock";
+  } else if (playerSelection === "Paper" && ComputerSelection === "Paper") {
+    return "You are evan";
+  } else if (playerSelection === "Paper" && ComputerSelection === "Scissors") {
+    return "You Lose! Scissors beats Paper";
+  }
+
+  /* the playerSelection Scissors option cases */
+  if (playerSelection === "Scissors" && ComputerSelection === "Rock") {
+    return 'You Lose! Scissors beats Rock'
+  } else if (playerSelection === "Scissors" && ComputerSelection === "Paper") {
+    return 'You Won! Scissors beats Paper'
+  } else if (
+    playerSelection === "Scissors" && ComputerSelection === "Scissors"
+  ) {
+    return 'You are evan! '
+  }
+}
+
+console.log(playRound(playerSelection, computerChoice))
