@@ -6,8 +6,6 @@ let computerScore = 0;
 console.log("player select: " + playerSelection);
 console.log("computer select: " + computerChoice);
 
-
-
 function getComputerChoice() {
   let e = Math.floor(Math.random() * 3);
   if (e === 0) {
@@ -19,68 +17,65 @@ function getComputerChoice() {
   }
 }
 
+// this function return the result based on the player and computer choice:
 function playRound(playerSelection, ComputerSelection) {
   /* the playerSelection Rock option cases */
   if (playerSelection === "Rock" && ComputerSelection === "Rock") {
     return "You are evan";
+    playerScore = playerScore + 1;
+    computerScore = computerScore + 1;
+    
   } else if (playerSelection === "Rock" && ComputerSelection === "Paper") {
+    computerScore = computerScore + 1;
     return "You Lose! Paper beats Rock";
   } else if (playerSelection === "Rock" && ComputerSelection === "Scissors") {
+    playerScore = playerScore + 1;
     return "You Won! Rock beats Scissors";
   }
 
   /* the playerSelection Paper option cases */
   if (playerSelection === "Paper" && ComputerSelection === "Rock") {
+    playerScore = playerScore + 1;
     return "You Won ! Paper beats Rock";
   } else if (playerSelection === "Paper" && ComputerSelection === "Paper") {
     return "You are evan";
+    playerScore = playerScore + 1;
+    computerScore = computerScore + 1;
   } else if (playerSelection === "Paper" && ComputerSelection === "Scissors") {
+    computerScore = computerScore + 1;
+
     return "You Lose! Scissors beats Paper";
   }
 
   /* the playerSelection Scissors option cases */
   if (playerSelection === "Scissors" && ComputerSelection === "Rock") {
+    computerScore = computerScore + 1;
+
     return "You Lose! Scissors beats Rock";
   } else if (playerSelection === "Scissors" && ComputerSelection === "Paper") {
+    playerScore = playerScore + 1;
     return "You Won! Scissors beats Paper";
-  } else if (
-    playerSelection === "Scissors" &&
-    ComputerSelection === "Scissors"
-  ) {
+  }
+   
+  else if (playerSelection === "Scissors" && ComputerSelection === "Scissors") 
+  {
     return "You are evan! ";
+    playerScore = playerScore + 1;
+    computerScore = computerScore + 1;
   }
 }
 
-let round = playRound(playerSelection, computerChoice);
+// the game()
+function game() {
+  playRound(playerSelection, getComputerChoice());
+  playRound(playerSelection, getComputerChoice());
+  playRound(playerSelection, getComputerChoice());
+  playRound(playerSelection, getComputerChoice());
+  playRound(playerSelection, getComputerChoice());
 
-
-function playGame() {
   
-  if (round === "You Won ! Paper beats Rock") {
-    playerScore++;
-    
-
-  }
-  if (round === "You Won! Rock beats Scissors") {
-    playerScore++;
-  }
-  if (round === "You Won! Scissors beats Paper") {
-    playerScore++;
-  }
-  if (round === "You Lose! Paper beats Rock") {
-    computerScore++;
-  }
-  if (round === "You Lose! Scissors beats Paper") {
-    computerScore++;
-  }
-  if (round === "You Lose! Scissors beats Rock") {
-    computerScore++;
-  }
-
-
-
+  console.log("player score: " + playerScore);
+  console.log("computer score: " + computerScore);
 }
 
-console.log("player score: " + playerScore);
-console.log("computer score: " + computerScore);
-
+game();
