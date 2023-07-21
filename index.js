@@ -1,10 +1,10 @@
-let playerSelection = "Rock";
-let computerChoice = getComputerChoice();
+const playerSelection = "Rock";
+const computerSelection = getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
 
 console.log("player select: " + playerSelection);
-console.log("computer select: " + computerChoice);
+console.log("computer select: " + computerSelection);
 
 function getComputerChoice() {
   let e = Math.floor(Math.random() * 3);
@@ -21,10 +21,9 @@ function getComputerChoice() {
 function playRound(playerSelection, ComputerSelection) {
   /* the playerSelection Rock option cases */
   if (playerSelection === "Rock" && ComputerSelection === "Rock") {
-    return "You are evan";
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
-    
+    return "You are evan";
   } else if (playerSelection === "Rock" && ComputerSelection === "Paper") {
     computerScore = computerScore + 1;
     return "You Lose! Paper beats Rock";
@@ -38,9 +37,9 @@ function playRound(playerSelection, ComputerSelection) {
     playerScore = playerScore + 1;
     return "You Won ! Paper beats Rock";
   } else if (playerSelection === "Paper" && ComputerSelection === "Paper") {
-    return "You are evan";
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
+    return "You are evan";
   } else if (playerSelection === "Paper" && ComputerSelection === "Scissors") {
     computerScore = computerScore + 1;
 
@@ -55,27 +54,23 @@ function playRound(playerSelection, ComputerSelection) {
   } else if (playerSelection === "Scissors" && ComputerSelection === "Paper") {
     playerScore = playerScore + 1;
     return "You Won! Scissors beats Paper";
-  }
-   
-  else if (playerSelection === "Scissors" && ComputerSelection === "Scissors") 
-  {
-    return "You are evan! ";
+  } else if (
+    playerSelection === "Scissors" &&
+    ComputerSelection === "Scissors"
+  ) {
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
+    return "You are evan! ";
   }
 }
 
-// the game()
-function game() {
+// the startGame()
+function startGame() {
   playRound(playerSelection, getComputerChoice());
-  playRound(playerSelection, getComputerChoice());
-  playRound(playerSelection, getComputerChoice());
-  playRound(playerSelection, getComputerChoice());
-  playRound(playerSelection, getComputerChoice());
+ 
 
-  
   console.log("player score: " + playerScore);
   console.log("computer score: " + computerScore);
 }
 
-game();
+startGame();
