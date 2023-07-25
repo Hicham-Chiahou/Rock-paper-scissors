@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
     
     <button id="rock-button" onclick="startGame()">Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <button onclick="startGame()">Paper</button>
+    <button onclick="startGame()">Scissors</button>
 
-    <div>you select: </div>
-    <div>computer selects: </div>
-    <div>your score: </div>
-    <div>computer score: </div>
-
+    <div id="playerSelectionDiv">you select: </div>
+    <div id="computerSelectionDiv">computer selects: </div>
+    <div id="playerScoreDiv">your score: </div>
+    <div id="computerScoreDiv">computer score: </div>
+    <div id="commentaryDiv">commentary: </div>
+    <div id="winnerDiv">commentary: </div>
+<script src="index.js"></script>
 </body>
 </html>

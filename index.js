@@ -1,10 +1,14 @@
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
+let playerSelection;
+let computerSelection;
+let playerSelectionDiv = document.getElementById("playerSelectionDiv");
+let computerSelectionDiv = document.getElementById("computerSelectionDiv");
+let playerScoreDiv = document.getElementById("playerScoreDiv");
+let computerScoreDiv = document.getElementById("computerScoreDiv");
+let commentaryDiv = document.getElementById("commentaryDiv");
+let winnerDiv = document.getElementById("winnerDiv");
+winnerDiv.innerText = "the winner is: ";
 let playerScore = 0;
 let computerScore = 0;
-
-console.log("player select: " + playerSelection);
-console.log("computer select: " + computerSelection);
 
 function getComputerChoice() {
   let e = Math.floor(Math.random() * 3);
@@ -50,7 +54,7 @@ function playRound(playerSelection, ComputerSelection) {
   if (playerSelection === "Scissors" && ComputerSelection === "Rock") {
     computerScore = computerScore + 1;
 
-    return "You Lose! Scissors beats Rock";
+    return "You Lose! Rock beats Scissors";
   } else if (playerSelection === "Scissors" && ComputerSelection === "Paper") {
     playerScore = playerScore + 1;
     return "You Won! Scissors beats Paper";
@@ -66,11 +70,29 @@ function playRound(playerSelection, ComputerSelection) {
 
 // the startGame()
 function startGame() {
-  playRound(playerSelection, getComputerChoice());
  
+  playerSelectionDiv.innerText = "player selects: ";
+  // get the element that is clicked from the window object.
+  window.onclick = (e) => {
+    playerSelection = e.target.innerHTML;
+    computerSelection = getComputerChoice();
 
-  console.log("player score: " + playerScore);
-  console.log("computer score: " + computerScore);
+    playerSelectionDiv.innerText = "player selects: " + playerSelection;
+    computerSelectionDiv.innerText = "computer selects: " + computerSelection;
+    
+    let commentary = playRound(playerSelection,computerSelection);
+    commentaryDiv.innerText = "commentary: " + commentary;
+    playerScoreDiv.innerText = "player score: " + playerScore;
+    computerScoreDiv.innerText = "computer score: " + computerScore;
+
+    if(playerScore === 5){
+      winnerDiv.innerText = "the winner: " + "player";
+    }else if(computerScore === 5){
+      winnerDiv.innerText = "the winner: " + "computer";
+    }
+  };
+
+  
 }
 
 startGame();
