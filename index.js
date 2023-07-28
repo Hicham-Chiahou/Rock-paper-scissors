@@ -6,6 +6,7 @@ let playerScoreDiv = document.getElementById("playerScoreDiv");
 let computerScoreDiv = document.getElementById("computerScoreDiv");
 let commentaryDiv = document.getElementById("commentaryDiv");
 let winnerDiv = document.getElementById("winnerDiv");
+let iconsDiv = document.getElementById("scissors")
 winnerDiv.innerText = "the winner is: ";
 let playerScore = 0;
 let computerScore = 0;
@@ -73,8 +74,8 @@ function startGame() {
  
   playerSelectionDiv.innerText = "player selects: ";
   // get the element that is clicked from the window object.
-  window.onclick = (e) => {
-    playerSelection = e.target.innerHTML;
+  iconsDiv.onclick = (e) => {
+    playerSelection = e.target.id;
     computerSelection = getComputerChoice();
 
     playerSelectionDiv.innerText = "player selects: " + playerSelection;

@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <img src="images/scissores.png" alt="">
-    <button id="rock-button" onclick="startGame()">Rock</button>
-    <button onclick="startGame()">Paper</button>
-    <button onclick="startGame()">Scissors</button>
+  </head>
+  <body>
+    <h1>Rock-Paper-Scissors</h1>
+    <p id="option-p">Choose an Option</p>
 
-    <div id="playerSelectionDiv">you select: </div>
-    <div id="computerSelectionDiv">computer selects: </div>
-    <div id="playerScoreDiv">your score: </div>
-    <div id="computerScoreDiv">computer score: </div>
-    <div id="commentaryDiv">commentary: </div>
-    <div id="winnerDiv">commentary: </div>
-<script src="index.js"></script>
-</body>
+    
+     <div id="buttons-div">
+      <div class="icons-div" id="scissors">
+        <img id="scissors" src="images/scissores.png" alt="">
+      </div>
+      <div class="icons-div" id="rock">
+        <img id="scissors" src="images/scissores.png" alt="">
+      </div>
+      <div class="icons-div" id="paper">
+        <img id="scissors" src="images/scissores.png" alt="">
+      </div>
+      
+
+     
+      
+      
+     </div>
+    
+
+    <div id="info">
+      <p id="playerSelectionDiv">you select:</p>
+      <p id="computerSelectionDiv">computer selects:</p>
+      <p id="playerScoreDiv">your score:</p>
+      <p id="computerScoreDiv">computer score:</p>
+      <p id="commentaryDiv">commentary:</p>
+      <p id="winnerDiv">commentary:</p>
+    </div>
+    <footer>coded and designed by hicham chiahou 2023</footer>
+    <script src="index.js"></script>
+  </body>
 </html>
