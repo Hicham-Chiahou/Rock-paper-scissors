@@ -6,7 +6,9 @@ let playerScoreDiv = document.getElementById("playerScoreDiv");
 let computerScoreDiv = document.getElementById("computerScoreDiv");
 let commentaryDiv = document.getElementById("commentaryDiv");
 let winnerDiv = document.getElementById("winnerDiv");
-let iconsDiv = document.getElementById("scissors")
+let iconScissorsDiv = document.getElementById("scissors")
+let iconRockDiv = document.getElementById("rock")
+let iconPaperDiv = document.getElementById("paper")
 winnerDiv.innerText = "the winner is: ";
 let playerScore = 0;
 let computerScore = 0;
@@ -18,7 +20,7 @@ function getComputerChoice() {
   } else if (e === 1) {
     return "Paper";
   } else {
-    return "Scissors";
+    return "scissors";
   }
 }
 
@@ -32,9 +34,9 @@ function playRound(playerSelection, ComputerSelection) {
   } else if (playerSelection === "Rock" && ComputerSelection === "Paper") {
     computerScore = computerScore + 1;
     return "You Lose! Paper beats Rock";
-  } else if (playerSelection === "Rock" && ComputerSelection === "Scissors") {
+  } else if (playerSelection === "Rock" && ComputerSelection === "scissors") {
     playerScore = playerScore + 1;
-    return "You Won! Rock beats Scissors";
+    return "You Won! Rock beats scissors";
   }
 
   /* the playerSelection Paper option cases */
@@ -45,23 +47,24 @@ function playRound(playerSelection, ComputerSelection) {
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
     return "You are evan";
-  } else if (playerSelection === "Paper" && ComputerSelection === "Scissors") {
+  } else if (playerSelection === "Paper" && ComputerSelection === "scissors") {
     computerScore = computerScore + 1;
 
-    return "You Lose! Scissors beats Paper";
+    return "You Lose! scissors beats Paper";
   }
 
-  /* the playerSelection Scissors option cases */
-  if (playerSelection === "Scissors" && ComputerSelection === "Rock") {
+  /* the playerSelection scissors option cases */
+  if (playerSelection === "scissors" && ComputerSelection === "Rock") {
     computerScore = computerScore + 1;
 
-    return "You Lose! Rock beats Scissors";
-  } else if (playerSelection === "Scissors" && ComputerSelection === "Paper") {
+    return "You Lose! Rock beats scissors";
+  } 
+  else if (playerSelection === "scissors" && ComputerSelection === "Paper") {
     playerScore = playerScore + 1;
-    return "You Won! Scissors beats Paper";
+    return "You Won! scissors beats Paper";
   } else if (
-    playerSelection === "Scissors" &&
-    ComputerSelection === "Scissors"
+    playerSelection === "scissors" &&
+    ComputerSelection === "scissors"
   ) {
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
@@ -74,7 +77,7 @@ function startGame() {
  
   playerSelectionDiv.innerText = "player selects: ";
   // get the element that is clicked from the window object.
-  iconsDiv.onclick = (e) => {
+  iconScissorsDiv.onclick = (e) => {
     playerSelection = e.target.id;
     computerSelection = getComputerChoice();
 
@@ -82,6 +85,7 @@ function startGame() {
     computerSelectionDiv.innerText = "computer selects: " + computerSelection;
     
     let commentary = playRound(playerSelection,computerSelection);
+    
     commentaryDiv.innerText = "commentary: " + commentary;
     playerScoreDiv.innerText = "player score: " + playerScore;
     computerScoreDiv.innerText = "computer score: " + computerScore;
@@ -91,7 +95,52 @@ function startGame() {
     }else if(computerScore === 5){
       winnerDiv.innerText = "the winner: " + "computer";
     }
+    
   };
+
+  iconPaperDiv.onclick = (e) => {
+    playerSelection = e.target.id;
+    computerSelection = getComputerChoice();
+
+    playerSelectionDiv.innerText = "player selects: " + playerSelection;
+    computerSelectionDiv.innerText = "computer selects: " + computerSelection;
+    
+    let commentary = playRound(playerSelection,computerSelection);
+    
+    commentaryDiv.innerText = "commentary: " + commentary;
+    playerScoreDiv.innerText = "player score: " + playerScore;
+    computerScoreDiv.innerText = "computer score: " + computerScore;
+
+    if(playerScore === 5){
+      winnerDiv.innerText = "the winner: " + "player";
+    }else if(computerScore === 5){
+      winnerDiv.innerText = "the winner: " + "computer";
+    }
+    
+  };
+
+  iconRockDiv.onclick = (e) => {
+    playerSelection = e.target.id;
+    computerSelection = getComputerChoice();
+
+    playerSelectionDiv.innerText = "player selects: " + playerSelection;
+    computerSelectionDiv.innerText = "computer selects: " + computerSelection;
+    
+    let commentary = playRound(playerSelection,computerSelection);
+    
+    commentaryDiv.innerText = "commentary: " + commentary;
+    playerScoreDiv.innerText = "player score: " + playerScore;
+    computerScoreDiv.innerText = "computer score: " + computerScore;
+
+    if(playerScore === 5){
+      winnerDiv.innerText = "the winner: " + "player";
+    }else if(computerScore === 5){
+      winnerDiv.innerText = "the winner: " + "computer";
+    }
+    
+  };
+
+
 
   
 }
