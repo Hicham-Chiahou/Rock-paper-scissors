@@ -16,9 +16,9 @@ let computerScore = 0;
 function getComputerChoice() {
   let e = Math.floor(Math.random() * 3);
   if (e === 0) {
-    return "Rock";
+    return "rock";
   } else if (e === 1) {
-    return "Paper";
+    return "paper";
   } else {
     return "scissors";
   }
@@ -27,39 +27,39 @@ function getComputerChoice() {
 // this function return the result based on the player and computer choice:
 function playRound(playerSelection, ComputerSelection) {
   /* the playerSelection Rock option cases */
-  if (playerSelection === "Rock" && ComputerSelection === "Rock") {
+  if (playerSelection === "rock" && ComputerSelection === "rock") {
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
     return "You are evan";
-  } else if (playerSelection === "Rock" && ComputerSelection === "Paper") {
+  } else if (playerSelection === "rock" && ComputerSelection === "paper") {
     computerScore = computerScore + 1;
     return "You Lose! Paper beats Rock";
-  } else if (playerSelection === "Rock" && ComputerSelection === "scissors") {
+  } else if (playerSelection === "rock" && ComputerSelection === "scissors") {
     playerScore = playerScore + 1;
     return "You Won! Rock beats scissors";
   }
 
   /* the playerSelection Paper option cases */
-  if (playerSelection === "Paper" && ComputerSelection === "Rock") {
+  if (playerSelection === "paper" && ComputerSelection === "rock") {
     playerScore = playerScore + 1;
     return "You Won ! Paper beats Rock";
-  } else if (playerSelection === "Paper" && ComputerSelection === "Paper") {
+  } else if (playerSelection === "paper" && ComputerSelection === "paper") {
     playerScore = playerScore + 1;
     computerScore = computerScore + 1;
     return "You are evan";
-  } else if (playerSelection === "Paper" && ComputerSelection === "scissors") {
+  } else if (playerSelection === "paper" && ComputerSelection === "scissors") {
     computerScore = computerScore + 1;
 
     return "You Lose! scissors beats Paper";
   }
 
   /* the playerSelection scissors option cases */
-  if (playerSelection === "scissors" && ComputerSelection === "Rock") {
+  if (playerSelection === "scissors" && ComputerSelection === "rock") {
     computerScore = computerScore + 1;
 
     return "You Lose! Rock beats scissors";
   } 
-  else if (playerSelection === "scissors" && ComputerSelection === "Paper") {
+  else if (playerSelection === "scissors" && ComputerSelection === "paper") {
     playerScore = playerScore + 1;
     return "You Won! scissors beats Paper";
   } else if (
@@ -100,7 +100,7 @@ function startGame() {
 
   iconPaperDiv.onclick = (e) => {
     playerSelection = e.target.id;
-    computerSelection = getComputerChoice();
+    computerSelection = getComputerChoice();  
 
     playerSelectionDiv.innerText = "player selects: " + playerSelection;
     computerSelectionDiv.innerText = "computer selects: " + computerSelection;
