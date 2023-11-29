@@ -6,9 +6,10 @@ let playerScoreDiv = document.getElementById("playerScoreDiv");
 let computerScoreDiv = document.getElementById("computerScoreDiv");
 let commentaryDiv = document.getElementById("commentaryDiv");
 let winnerDiv = document.getElementById("winnerDiv");
-let iconScissorsDiv = document.getElementById("scissors")
-let iconRockDiv = document.getElementById("rock")
-let iconPaperDiv = document.getElementById("paper")
+let iconScissorsDiv = document.getElementById("scissors");
+let iconRockDiv = document.getElementById("rock");
+let iconPaperDiv = document.getElementById("paper");
+let resetButton = document.getElementById("reset-button");
 winnerDiv.innerText = "the winner is: ";
 let playerScore = 0;
 let computerScore = 0;
@@ -58,8 +59,7 @@ function playRound(playerSelection, ComputerSelection) {
     computerScore = computerScore + 1;
 
     return "You Lose! Rock beats scissors";
-  } 
-  else if (playerSelection === "scissors" && ComputerSelection === "paper") {
+  } else if (playerSelection === "scissors" && ComputerSelection === "paper") {
     playerScore = playerScore + 1;
     return "You Won! scissors beats Paper";
   } else if (
@@ -74,7 +74,6 @@ function playRound(playerSelection, ComputerSelection) {
 
 // the startGame()
 function startGame() {
- 
   playerSelectionDiv.innerText = "player selects: ";
   // get the element that is clicked from the window object.
   iconScissorsDiv.onclick = (e) => {
@@ -83,48 +82,42 @@ function startGame() {
 
     playerSelectionDiv.innerText = "player selects: " + playerSelection;
     computerSelectionDiv.innerText = "computer selects: " + computerSelection;
-    
-    let commentary = playRound(playerSelection,computerSelection);
-    
+
+    let commentary = playRound(playerSelection, computerSelection);
+
     commentaryDiv.innerText = "commentary: " + commentary;
     playerScoreDiv.innerText = "player score: " + playerScore;
     computerScoreDiv.innerText = "computer score: " + computerScore;
 
-    if(playerScore === 5){
+    if (playerScore === 5) {
       winnerDiv.innerText = "the winner: " + "player";
       document.getElementById("buttons-div").style.pointerEvents = "none";
-
-    }else if(computerScore === 5){
+    } else if (computerScore === 5) {
       winnerDiv.innerText = "the winner: " + "computer";
       document.getElementById("buttons-div").style.pointerEvents = "none";
-
     }
-    
   };
 
   iconPaperDiv.onclick = (e) => {
     playerSelection = e.target.id;
-    computerSelection = getComputerChoice();  
+    computerSelection = getComputerChoice();
 
     playerSelectionDiv.innerText = "player selects: " + playerSelection;
     computerSelectionDiv.innerText = "computer selects: " + computerSelection;
-    
-    let commentary = playRound(playerSelection,computerSelection);
-    
+
+    let commentary = playRound(playerSelection, computerSelection);
+
     commentaryDiv.innerText = "commentary: " + commentary;
     playerScoreDiv.innerText = "player score: " + playerScore;
     computerScoreDiv.innerText = "computer score: " + computerScore;
 
-    if(playerScore === 5){
+    if (playerScore === 5) {
       winnerDiv.innerText = "the winner: " + "player";
       document.getElementById("buttons-div").style.pointerEvents = "none";
-
-    }else if(computerScore === 5){
+    } else if (computerScore === 5) {
       winnerDiv.innerText = "the winner: " + "computer";
       document.getElementById("buttons-div").style.pointerEvents = "none";
-
     }
-    
   };
 
   iconRockDiv.onclick = (e) => {
@@ -133,28 +126,35 @@ function startGame() {
 
     playerSelectionDiv.innerText = "player selects: " + playerSelection;
     computerSelectionDiv.innerText = "computer selects: " + computerSelection;
-    
-    let commentary = playRound(playerSelection,computerSelection);
-    
+
+    let commentary = playRound(playerSelection, computerSelection);
+
     commentaryDiv.innerText = "commentary: " + commentary;
     playerScoreDiv.innerText = "player score: " + playerScore;
     computerScoreDiv.innerText = "computer score: " + computerScore;
 
-    if(playerScore === 5){
+    if (playerScore === 5) {
       winnerDiv.innerText = "the winner: " + "player";
       document.getElementById("buttons-div").style.pointerEvents = "none";
-
-    }else if(computerScore === 5){
+    } else if (computerScore === 5) {
       winnerDiv.innerText = "the winner: " + "computer";
       document.getElementById("buttons-div").style.pointerEvents = "none";
-
     }
-    
   };
 
-
-
-  
+ 
 }
 
+ resetButton.onclick = (e) => {
+   playerScore = 0;
+ computerScore = 0;
+  commentaryDiv.innerText = "commentary: " ;
+  playerScoreDiv.innerText = "player score: " ;
+  computerScoreDiv.innerText = "computer score: " ;
+  playerSelectionDiv.innerText = "player selects: ";
+    computerSelectionDiv.innerText = "computer selects: ";
+    document.getElementById("buttons-div").style.pointerEvents = "auto";
+
+
+  };
 startGame();

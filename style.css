@@ -67,6 +67,13 @@ background-color: antiquewhite; */
   width: 100px;
   background-color: #f5ff87;
 }
+
+#reset-button{
+  border: none;
+  background-color: #f5ff87;
+  width: 50%;
+  font-weight: 700;
+}
 /* ------------------------footer----------------- */
 footer {
   color: #000;
