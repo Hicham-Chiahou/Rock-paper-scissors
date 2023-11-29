@@ -92,8 +92,12 @@ function startGame() {
 
     if(playerScore === 5){
       winnerDiv.innerText = "the winner: " + "player";
+      document.getElementById("buttons-div").style.pointerEvents = "none";
+
     }else if(computerScore === 5){
       winnerDiv.innerText = "the winner: " + "computer";
+      document.getElementById("buttons-div").style.pointerEvents = "none";
+
     }
     
   };
@@ -113,8 +117,12 @@ function startGame() {
 
     if(playerScore === 5){
       winnerDiv.innerText = "the winner: " + "player";
+      document.getElementById("buttons-div").style.pointerEvents = "none";
+
     }else if(computerScore === 5){
       winnerDiv.innerText = "the winner: " + "computer";
+      document.getElementById("buttons-div").style.pointerEvents = "none";
+
     }
     
   };
@@ -134,8 +142,12 @@ function startGame() {
 
     if(playerScore === 5){
       winnerDiv.innerText = "the winner: " + "player";
+      document.getElementById("buttons-div").style.pointerEvents = "none";
+
     }else if(computerScore === 5){
       winnerDiv.innerText = "the winner: " + "computer";
+      document.getElementById("buttons-div").style.pointerEvents = "none";
+
     }
     
   };
